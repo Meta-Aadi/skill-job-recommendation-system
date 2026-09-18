@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Career Radar — Skill Intelligence</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Space+Grotesk:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+</head>
+
+<body>
+
+    <div class="app-shell">
+
+        <!-- Header -->
+        <header class="topbar">
+
+            <div class="brand">
+                <span class="brand-main">CAREER RADAR</span>
+                <span class="brand-sub">SKILL INTELLIGENCE SYSTEM</span>
+            </div>
+
+            <div class="system-status">
+                <span class="status-dot"></span>
+                MODEL ONLINE
+            </div>
+
+        </header>
+
+
+        <!-- Main -->
+        <main>
+
+            <!-- Hero -->
+            <section class="hero">
+
+                <p class="eyebrow">AI-POWERED CAREER DISCOVERY</p>
+
+                <h1>
+                    Where could your
+                    <span>skills</span>
+                    take you?
+                </h1>
+
+                <p class="hero-description">
+                    Enter your technical skills and let the recommendation
+                    engine identify career paths that match your profile.
+                </p>
+
+            </section>
+
+
+            <!-- Search Panel -->
+            <section class="search-panel">
+
+                <div class="input-section">
+
+                    <label for="skillsInput">
+                        YOUR SKILLS
+                    </label>
+
+                    <input
+                        type="text"
+                        id="skillsInput"
+                        placeholder="Python, SQL, Pandas, Machine Learning..."
+                    >
+
+                    <p class="input-help">
+                        Separate multiple skills with commas.
+                    </p>
+
+                </div>
+
+
+                <!-- Filters -->
+                <div class="filters">
+
+                    <div class="filter-group">
+
+                        <label for="categoryFilter">
+                            CATEGORY
+                        </label>
+
+                        <select id="categoryFilter">
+
+                            <option value="">
+                                All Categories
+                            </option>
+
+                            <option value="Software Development">
+                                Software Development
+                            </option>
+
+                            <option value="Data Analytics">
+                                Data Analytics
+                            </option>
+
+                            <option value="Machine Learning">
+                                Machine Learning
+                            </option>
+
+                            <option value="Web Development">
+                                Web Development
+                            </option>
+
+                            <option value="Data Science">
+                                Data Science
+                            </option>
+
+                            <option value="Business Intelligence">
+                                Business Intelligence
+                            </option>
+
+                            <option value="Artificial Intelligence">
+                                Artificial Intelligence
+                            </option>
+
+                            <option value="Database Engineering">
+                                Database Engineering
+                            </option>
+
+                            <option value="DevOps">
+                                DevOps
+                            </option>
+
+                            <option value="Cloud Computing">
+                                Cloud Computing
+                            </option>
+
+                            <option value="Automation">
+                                Automation
+                            </option>
+
+                            <option value="Software Testing">
+                                Software Testing
+                            </option>
+
+                            <option value="Backend Development">
+                                Backend Development
+                            </option>
+
+                            <option value="Data Engineering">
+                                Data Engineering
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label for="locationFilter">
+                            LOCATION
+                        </label>
+
+                        <select id="locationFilter">
+
+                            <option value="">
+                                All Locations
+                            </option>
+
+                            <option value="Bangalore">
+                              Bengaluru
+                              </option>
+
+                            <option value="Delhi India">
+                                Delhi
+                            </option>
+
+                            <option value="Hyderabad India">
+                                Hyderabad
+                            </option>
+
+                            <option value="Noida India">
+                                Noida
+                            </option>
+
+                            <option value="Pune India">
+                                Pune
+                            </option>
+
+                            <option value="Mumbai India">
+                                Mumbai
+                            </option>
+
+                            <option value="Chennai India">
+                                Chennai
+                            </option>
+
+                            <option value="Remote India">
+                                Remote
+                            </option>
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="filter-group">
+
+                        <label for="experienceFilter">
+                            EXPERIENCE
+                        </label>
+
+                        <select id="experienceFilter">
+
+                            <option value="">
+                                All Experience
+                            </option>
+
+                            <option value="0-1 years">
+                                0–1 years
+                            </option>
+
+                            <option value="0-2 years">
+                                0–2 years
+                            </option>
+
+                            <option value="1-3 years">
+                                1–3 years
+                            </option>
+
+                            <option value="2-4 years">
+                                2–4 years
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+
+                <button id="recommendButton">
+                    SCAN MY CAREER SIGNAL
+                </button>
+
+            </section>
+
+
+            <!-- Loading -->
+            <div id="loading" class="loading hidden">
+                ANALYZING CAREER SIGNAL...
+            </div>
+
+
+            <!-- Results -->
+            <section id="resultsSection" class="results-section hidden">
+
+                <div class="results-header">
+
+                    <div>
+                        <p class="eyebrow">
+                            RECOMMENDATION ENGINE
+                        </p>
+
+                        <h2>
+                            Career trajectories
+                        </h2>
+                    </div>
+
+                    <div id="resultCount" class="result-count">
+                        0 MATCHES
+                    </div>
+
+                </div>
+
+
+                <!-- Job results -->
+                <div id="resultsContainer" class="results-grid"></div>
+
+            </section>
+
+
+            <!-- Empty state -->
+            <section id="emptyState" class="empty-state">
+
+                <div class="radar">
+
+                    <div class="radar-circle circle-one"></div>
+                    <div class="radar-circle circle-two"></div>
+                    <div class="radar-circle circle-three"></div>
+
+                    <div class="radar-line"></div>
+
+                    <div class="radar-center"></div>
+
+                </div>
+
+                <p>
+                    Your career signal is waiting.
+                </p>
+
+            </section>
+
+        </main>
+
+
+        <!-- Footer -->
+        <footer>
+
+            <span>
+                CAREER RADAR
+            </span>
+
+            <span>
+                TF-IDF · COSINE SIMILARITY · CONTENT-BASED RECOMMENDATION
+            </span>
+
+        </footer>
+
+    </div>
+
+
+    <script src="script.js"></script>
+
+</body>
+</html>
