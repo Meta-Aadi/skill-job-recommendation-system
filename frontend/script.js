@@ -1,4 +1,4 @@
-const API_URL = "http://127.0.0.1:8000";
+const API_URL = "https://career-radar-api-zihz.onrender.com";
 
 const skillsInput = document.getElementById("skillsInput");
 const categoryFilter = document.getElementById("categoryFilter");
